@@ -22,7 +22,7 @@ app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
 // Routes
-app.use('/',require('./server/routes/customer'))
+app.use('/',require('./server/routes/donante'))
 
 // Handle 404
 app.get('*',(req, res) => {
