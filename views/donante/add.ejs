@@ -12,7 +12,7 @@
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/">Registro</a></li>
             <li class="breadcrumb-item active">Nueva Donante</li>
           </ol>
         </nav>
@@ -23,3 +23,155 @@
     </div>
     
   </div>
+
+ <form action="/add" method="POST">
+
+    <div class="row form-group mb-2">
+      
+      <div class="col">
+        <label for="tipo">Tipo</label>
+        <select class="form-select" id="tipo" name="tipo" required>
+          <option value="">Seleccione una opción</option>
+          <option value="Homóloga">Homóloga</option>
+          <option value="Heteróloga">Heteróloga</option>
+        </select>
+      </div>
+    
+      <div class="col">
+        <label for="firstName">Nombre</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" value="" required>
+      </div>
+      <br>
+      
+      <div class="col-sm-6">
+        <label for="lastName">Apellidos</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" value="" required style="width: 28rem;">
+      </div>
+
+      <br>
+
+      <div class="row form-group mb-4">
+        <div class="col-sm-2">
+          <label for="edad" style="margin-top: 0.88rem;">Edad</label>
+          <input type="number" class="form-control mt-2" id="edad" name="edad" value="" required min="1"> 
+        </div>
+      
+        <div class="col-sm-10">
+          <label for="direccion" style="margin-top: 1rem;">Dirección</label>
+          <input type="text" class="form-control form-control mt-2" id="direccion" name="direccion" value="" required >
+        </div>
+      </div>
+      
+
+    <div class="row form-group mb-4">
+      <div class="col-sm-6">
+        <label for="ocupacion">Ocupación</label>
+        <input type="text" class="form-control" id="ocupacion" name="ocupacion" value="">
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="partos">Partos</label>
+            <input type="number" class="form-control" id="partos" name="partos" value="">
+          </div>
+          <div class="col-sm-6">
+            <label for="cesareas">Cesáreas</label>
+            <input type="number" class="form-control" id="cesareas" name="cesareas" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+    <div class="row form-group mb-4">
+    <div class="col-sm-6">
+        <label for="apellidosRNLactante">Apellidos del RN o Lactante</label>
+        <input type="text" class="form-control" id="apellidosRNLactante" name="apellidosRNLactante" value="">
+     </div>
+    <div class="col-sm-3">
+        <label for="sdg">Semanas de gestación (SDG)</label>
+        <input type="number" class="form-control" id="sdg" name="sdg" value="" required>
+    </div>
+    <div class="col-sm-3">
+        <label for="fechaNacimRN">Fecha de Nacim. RN</label>
+        <input type="date" class="form-control" id="fechaNacimRN" name="fechaNacimRN" value="" required>
+    </div>
+    </div>
+
+  
+  
+    <div class="row form-group mb-4">
+      <div class="col">
+        <label for="complicacionesEmbarazo">¿Ha tenido alguna complicación durante el embarazo?</label>
+        <input type="text" class="form-control" id="complicacionesEmbarazo"name="complicacionesEmbarazo" value="">
+      </div>
+    </div>
+
+    <div class="row form-group mb-4">
+      <div class="col">
+        <label for="transfusionesUltimos5Anos">¿Ha recibido transfusiones en los últimos 5 años?</label>
+        <select class="form-select" id="transfusionesUltimos5Anos" name="transfusionesUltimos5Anos">
+          <option value="">Seleccione una opción</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label for="tatuajesPiercingsAcupunturaUltimoAno">¿Tiene tatuajes, piercings o se ha realizado acupuntura en el último año?</label>
+        <select class="form-select" id="tatuajesPiercingsAcupunturaUltimoAno" name="tatuajesPiercingsAcupunturaUltimoAno">
+          <option value="">Seleccione una opción</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row form-group mb-4">
+      <div class="col">
+        <label for="tratamientoMedico">Tratamiento médico</label>
+        <input type="text" class="form-control" id="tratamientoMedico" name="tratamientoMedico" value="">
+      </div>
+    </div>
+
+    <div class="row form-group mb-4">
+      <div class="col-sm-4">
+        <label for="pruebaRapidaSifilis">PruebaRapidaSifilis</label>
+        <select class="form-select" id="pruebaRapidaSifilis" name="pruebaRapidaSifilis" class="form-control" required>
+          <option value="">Seleccione una opción</option>
+          <option value="No Reactivo">No Reactivo</option>
+          <option value="Reactivo">Reactivo</option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <label for="pruebaRapidaVIH">PruebaRapidaVIH</label>
+        <select class="form-select" id="pruebaRapidaVIH" name="pruebaRapidaVIH" class="form-control" required>
+          <option value="">Seleccione una opción</option>
+          <option value="No Reactivo">No Reactivo</option>
+          <option value="Reactivo">Reactivo</option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <label for="pruebaRapidaHepatitisC">Prueba rápida Hepatitis C</label>
+        <select class="form-select" id="pruebaRapidaHepatitisC" name="pruebaRapidaHepatitisC" class="form-control" required>
+          <option value="">Seleccione una opción</option>
+          <option value="No Reactivo">No Reactivo</option>
+          <option value="Reactivo">Reactivo</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="row form-group mb-4">
+      <div class="col-sm-12">
+        <label for="observaciones">Observaciones</label>
+        <textarea class="form-control bg-yellow" id="observaciones" name="observaciones" rows="3" ></textarea>
+      </div>
+    </div>
+    
+    
+    <div class="mb-4"></div><div class="form-group mb-4">
+      <button type="submit" class="btn btn-primary">Agregar Donante</button>
+    </div>
+    
+
+<form>

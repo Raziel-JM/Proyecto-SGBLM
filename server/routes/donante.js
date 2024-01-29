@@ -6,5 +6,6 @@ const donanteController = require('../controllers/donanteController');
 
 router.get('/', donanteController.homepage);
 router.get('/add', donanteController.addDonante);
+router.post('/add', donanteController.postDonante);
 
 module.exports = router;
