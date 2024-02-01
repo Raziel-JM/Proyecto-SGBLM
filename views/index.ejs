@@ -6,3 +6,87 @@
       </div>
     </div>
   </div>
+
+  
+
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Tipo</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">SDG</th>
+          <th scope="col"class="text-end">Accion</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% donantes.forEach(element => { %>
+         <tr class="align-middle">
+          <td><%= element.tipo%></td>
+          <td><%= element.lastName%></td>
+          <td><%= element.firstName%></td>
+          <td><%= element.sdg%></td>
+          <td class="text-end">
+
+
+            <div class="d-flex flex-row justify-content-end gap-2">
+
+              <a href="/view/<%element._id %>" type="button" class="btn btn-primary btn-small">
+                <i class="bi bi-eye"></i>
+              </a>
+
+              <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                <i class="bi bi-pencil"></i>
+              </a>
+
+              <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
+                <button type="submit" class="btn btn-danger btn-small">
+                  <i class="bi bi-person-x"></i>
+                </button>
+              </form>
+            </div>
+         </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <% if (donantes.length > 0) {%>
+    <nav aria-label="Dashboard Pagination">
+      <ul class="pagination justity-content-center mt-5">
+
+        <% if (current == 1) { %>
+          <li class="page-item disabled"><a href="#" class="page-link">Principal</a></li>
+        <% } else { %>
+          <li class="page-item"><a href="/?pagina=1" class="page-link">Principal</a></li>
+        <% } %>
+        
+        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+        <% if(i !== 1) { %>
+          <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+        <% } %>
+  
+        <% for(; i <= (Number(current) + 4) && i <= paginas; i++ ) { %>
+          <% if (i == current) { %>
+            <li class="page-item disabled"><a href="#" class="page-link"><%= i %></a></li>
+          <% } else { %>
+            <li class="page-item"><a href="/?pagina=<%= i %>" class="page-link"><%= i %></a></li>
+          <% } %>
+          <% if (i == Number(current) + 4 && i < paginas) { %>
+            <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+          <% } %>
+        <% } %>
+  
+        <% if (current == paginas) { %>
+          <li class="page-item disabled"><a href="#" class="page-link">Última</a></li>
+        <% } else { %>
+          <li class="page-item"><a href="/?pagina=<%= paginas %>" class="page-link">Última</a></li>
+        <% } %>
+
+      </ul>
+    </nav>
+  <% } %>
+
+  

@@ -1,7 +1,10 @@
+// Importar la biblioteca mongoose
 const mongoose = require('mongoose');
 
+// Crear un esquema usando mongoose.Schema
 const Schema = mongoose.Schema;
 
+// Definir el esquema del modelo 'Donante'
 const modelsDonanteSchema = new Schema({
   tipo: {
     type: String,
@@ -48,11 +51,13 @@ const modelsDonanteSchema = new Schema({
   },
   transfusionesUltimos5Anos: {
     type: String,
-    enum: ['Sí', 'No']
+    enum: ['Sí', 'No'],
+    required: true
   },
   tatuajesPiercingsAcupunturaUltimoAno: {
     type: String,
-    enum: ['Sí', 'No']
+    enum: ['Sí', 'No'],
+    required: true
   },
   tratamientoMedico: {
     type: String
@@ -77,10 +82,18 @@ const modelsDonanteSchema = new Schema({
   },
   createdAt: {
     type: Date,
+    default: Date.now
   },
   updatedAt: {
     type: Date,
+    default: Date.now
   }
 });
 
+// Agregar la función count() fuera del esquema
+modelsDonanteSchema.methods.count = function() {
+  return this.model('Donante').countDocuments();
+};
+
+// Exportar el modelo 'Donante' basado en el esquema
 module.exports = mongoose.model('Donante', modelsDonanteSchema);
