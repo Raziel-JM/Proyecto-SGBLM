@@ -33,9 +33,10 @@
 
             <div class="d-flex flex-row justify-content-end gap-2">
 
-              <a href="/view/<%element._id %>" type="button" class="btn btn-primary btn-small">
+              <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">
                 <i class="bi bi-eye"></i>
               </a>
+              
 
               <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
                 <i class="bi bi-pencil"></i>
@@ -85,8 +86,10 @@
           <li class="page-item"><a href="/?pagina=<%= paginas %>" class="page-link">Última</a></li>
         <% } %>
 
-      </ul>
-    </nav>
-  <% } %>
-
+        </ul>
+      </nav>
+      <% } %>
+    </tbody>
+  </table>
+</div>
   

@@ -16,7 +16,7 @@ exports.homepage = async (req, res) => {
     //messages: messages,
   }
 
-  let perPagina = 12;  // Cambio realizado: perPage a perPagina
+  let perPagina = 20;  // Cambio realizado: perPage a perPagina
   let pagina = req.query.pagina || 1;
 
   try{
@@ -100,7 +100,7 @@ exports.postDonante = async (req, res) => {
    console.error('Error al crear un nuevo Donante:', error);
    return res.redirect('/add');
   }
-};
+}
 
 
 // /GET/
@@ -121,3 +121,22 @@ exports.postDonante = async (req, res) => {
     //console.log(error);
   //}
  //}
+// /GET/
+// Donante Datos
+exports.view = async (req, res) => {
+  try {
+    const donante = await Donante.findOne({ _id: req.params.id });
+    if (!donante) {
+      return res.status(404).render('404'); // Mostrar página 404 si el donante no se encuentra
+    }
+    const locals = {
+      title: "View Donante Dato",
+      description: "Free SGBLM User Management System",
+      donante
+    };
+    res.render('donante/view', locals);
+  } catch (error) {
+    console.log('Error en el controlador de vista:', error);
+    res.status(500).render('error', { message: 'Error al cargar los detalles del donante' });
+  }
+};
