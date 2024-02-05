@@ -1,5 +1,7 @@
 {
     "CodeGPT.Autocomplete.enabled": true,
     "CodeGPT.query.language": "Spanish",
-    "CodeGPT.apiKey": "CodeGPT Plus"
+    "CodeGPT.apiKey": "CodeGPT Plus",
+    "livePreview.customExternalBrowser": "Chrome",
+    "livePreview.defaultPreviewPath": "/views/donante/view.ejs"
 }

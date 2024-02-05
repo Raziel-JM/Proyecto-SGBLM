@@ -4,6 +4,7 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const session = require('express-session');
+const methodOverride = require('method-override');
 const connecDB = require('./server/config/db')
 
 
@@ -12,6 +13,7 @@ const port = process.env.PORT || 5000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 ///Conectar DB
 connecDB();

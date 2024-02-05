@@ -10,6 +10,10 @@ router.post('/add', donanteController.postDonante);
 
 //router.get('/donantes', donanteController.listaDonantes);
 router.get('/view/:id', donanteController.view);
+router.get('/edit/:id', donanteController.edit);
+router.put('/edit/:id', donanteController.editPost);
+router.delete('/edit/:id', donanteController.deleteDonante);
+
 
 
 module.exports = router;

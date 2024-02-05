@@ -1,0 +1,179 @@
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Editar: <%= donante.lastName.trim() %> <%= donante.firstName.trim() %></h1>
+    <div class="btn-toolbar mb-2 mb-md 0">
+      <div class="btn-group me-2">
+        <button class="btn btn-sm btn-outline-secondary">?</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col py-3">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Registro Donadoras</a></li>
+            <li class="breadcrumb-item active">Donante: <%= donante.lastName%> <%= donante.firstName %></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col text-end fw-lighter">
+        <b>Última Actualización: <%= moment(donante.updatedAt).format('llll [hrs]') %> </b>
+      </div>
+    </div>
+    
+  </div>
+
+ <form action="/edit/<%= donante._id %>?_method=PUT" method="POST">
+
+    <div class="row form-group mb-2">
+      
+      <div class="col">
+        <label for="tipo">Tipo</label>
+        <select class="form-select" id="tipo" name="tipo" required>
+        <option value=""<%= donante.tipo === '' ? 'selected' : '' %>>Seleccione una opción</option>
+        <option value="Homóloga"<%= donante.tipo === 'Homóloga' ? 'selected' : ''%>>Homóloga</option>
+        <option value="Heteróloga" <%= donante.tipo === 'Heteróloga' ? 'selected' : ''%>>Heteróloga</option>
+        </select>
+      </div>
+    
+      <div class="col">
+        <label for="firstName">Nombre</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" value="<%= donante.firstName %>" required>
+      </div>
+      <br>
+      
+      <div class="col-sm-6">
+        <label for="lastName">Apellidos</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" value="<%= donante.lastName %>"  required style="width: 28rem;">
+      </div>
+
+      <br>
+
+      <div class="row form-group mb-4">
+        <div class="col-sm-2">
+          <label for="edad" style="margin-top: 0.88rem;">Edad</label>
+          <input type="number" class="form-control mt-2" id="edad" name="edad" value="<%= donante.edad %>" required min="1"> 
+        </div>
+      
+        <div class="col-sm-10">
+          <label for="direccion" style="margin-top: 1rem;">Dirección</label>
+          <input type="text" class="form-control form-control mt-2" id="direccion" name="direccion" value="<%= donante.direccion %>" required >
+        </div>
+      </div>
+      
+
+    <div class="row form-group mb-4">
+      <div class="col-sm-6">
+        <label for="ocupacion">Ocupación</label>
+        <input type="text" class="form-control" id="ocupacion" name="ocupacion" value="<%= donante.ocupacion %>">
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="partos">Partos</label>
+            <input type="number" class="form-control" id="partos" name="partos" value="<%= donante.partos %>">
+          </div>
+          <div class="col-sm-6">
+            <label for="cesareas">Cesáreas</label>
+            <input type="number" class="form-control" id="cesareas" name="cesareas" value="<%= donante.cesareas %>">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+    <div class="row form-group mb-4">
+    <div class="col-sm-6">
+        <label for="apellidosRNLactante">Apellidos del RN o Lactante</label>
+        <input type="text" class="form-control" id="apellidosRNLactante" name="apellidosRNLactante" value="<%= donante.apellidosRNLactante%>">
+     </div>
+    <div class="col-sm-3">
+        <label for="sdg">Semanas de gestación (SDG)</label>
+        <input type="number" class="form-control" id="sdg" name="sdg" value="<%= donante.sdg %>" required>
+    </div>
+    <div class="col-sm-3">
+        <label for="fechaNacimRN">Fecha de Nacim. RN</label>
+        <input type="date" class="form-control" id="fechaNacimRN" name="fechaNacimRN" value="<%= donante.fechaNacimRN ? moment(donante.fechaNacimRN).format('YYYY-MM-DD') : '' %>" required>
+    </div>
+    </div>
+
+  
+  
+    <div class="row form-group mb-4">
+      <div class="col">
+        <label for="complicacionesEmbarazo">¿Ha tenido alguna complicación durante el embarazo?</label>
+        <input type="text" class="form-control" id="complicacionesEmbarazo"name="complicacionesEmbarazo" value="<%= donante.complicacionesEmbarazo%>">
+      </div>
+    </div>
+
+    
+    <div class="row form-group mb-4">
+          <div class="col">
+            <label for="transfusionesUltimos5Anos">¿Ha recibido transfusiones en los últimos 5 años?</label>
+            <select class="form-select" id="transfusionesUltimos5Anos" name="transfusionesUltimos5Anos" class="form-control" required>
+              <option value="" <%= donante.transfusionesUltimos5Anos === '' ? 'selected' : '' %>>Seleccione una opción</option>
+              <option value="Sí" <%= donante.transfusionesUltimos5Anos === 'Sí' ? 'selected' : '' %>>Sí</option>
+              <option value="No" <%= donante.transfusionesUltimos5Anos === 'No' ? 'selected' : '' %>>No</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="tatuajesPiercingsAcupunturaUltimoAno">¿Tiene tatuajes, piercings o se ha realizado acupuntura en el último año?</label>
+            <select class="form-select" id="tatuajesPiercingsAcupunturaUltimoAno" name="tatuajesPiercingsAcupunturaUltimoAno" class="form-control" required>
+              <option value="" <%= donante.tatuajesPiercingsAcupunturaUltimoAno === '' ? 'selected' : '' %>>Seleccione una opción</option>
+              <option value="Sí" <%= donante.tatuajesPiercingsAcupunturaUltimoAno === 'Sí' ? 'selected' : '' %>>Sí</option>
+              <option value="No" <%= donante.tatuajesPiercingsAcupunturaUltimoAno === 'No' ? 'selected' : '' %>>No</option>
+            </select>
+          </div>
+    </div>
+
+    <div class="row form-group mb-4">
+      <div class="col">
+        <label for="tratamientoMedico">Tratamiento médico</label>
+        <input type="text" class="form-control" id="tratamientoMedico" name="tratamientoMedico" value="<%= donante.tratamientoMedico%>">
+      </div>
+    </div>
+
+    <div class="row form-group mb-4">
+    <div class="col-sm-4">
+        <label for="pruebaRapidaSifilis">Prueba Rapida Sifilis</label>
+        <select class="form-select" id="pruebaRapidaSifilis" name="pruebaRapidaSifilis" class="form-control" required>
+            <option value="" <%= donante.pruebaRapidaSifilis === '' ? 'selected' : '' %>>Seleccione una opción</option>
+            <option value="No Reactivo" <%= donante.pruebaRapidaSifilis === 'No Reactivo' ? 'selected' : '' %>>No Reactivo</option>
+            <option value="Reactivo" <%= donante.pruebaRapidaSifilis === 'Reactivo' ? 'selected' : '' %>>Reactivo</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label for="pruebaRapidaVIH">Prueba Rapida VIH</label>
+        <select class="form-select" id="pruebaRapidaVIH" name="pruebaRapidaVIH" class="form-control" required>
+            <option value="" <%= donante.pruebaRapidaVIH === '' ? 'selected' : '' %>>Seleccione una opción</option>
+            <option value="No Reactivo" <%= donante.pruebaRapidaVIH === 'No Reactivo' ? 'selected' : '' %>>No Reactivo</option>
+            <option value="Reactivo" <%= donante.pruebaRapidaVIH === 'Reactivo' ? 'selected' : '' %>>Reactivo</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label for="pruebaRapidaHepatitisC">Prueba Rápida Hepatitis C</label>
+        <select class="form-select" id="pruebaRapidaHepatitisC" name="pruebaRapidaHepatitisC" class="form-control" required>
+            <option value="" <%= donante.pruebaRapidaHepatitisC === '' ? 'selected' : '' %>>Seleccione una opción</option>
+            <option value="No Reactivo" <%= donante.pruebaRapidaHepatitisC === 'No Reactivo' ? 'selected' : '' %>>No Reactivo</option>
+            <option value="Reactivo" <%= donante.pruebaRapidaHepatitisC === 'Reactivo' ? 'selected' : '' %>>Reactivo</option>
+        </select>
+    </div>
+</div>
+
+    
+    <div class="row form-group mb-4">
+      <div class="col-sm-12">
+        <label for="observaciones">Observaciones</label>
+        <textarea class="form-control bg-yellow" id="observaciones" name="observaciones" rows="3" ><%= donante.observaciones %></textarea>
+      </div>
+    </div>
+    
+    
+    <div class="mb-4"></div><div class="form-group mb-4">
+      <button type="submit" class="btn btn-success">Actualizar Donadora</button>
+    </div>
+    
+
+<form>
+

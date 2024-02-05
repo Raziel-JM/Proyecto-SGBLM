@@ -1,1 +1,180 @@
-View D
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><%= donante.lastName %> <%= donante.firstName %></h1>
+    <div class="btn-toolbar mb-2 mb-md 0">
+      <div class="btn-group me-2">
+        <button type="button" class="btn-btn-sm btn-outline-secondary"> Compartir </button>
+        <button type="button" class="btn-btn-sm btn-outline-secondary"> Exportar </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col py-3">
+
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Registro Donadoras</a></li>
+            <li class="breadcrumb-item active"><%= donante.lastName %> <%= donante.firstName %></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col text-end fw-lighter">
+        <b>Última Actualización: <%= moment(donante.updatedAt).format('llll [hrs]') %> </b>
+
+      </div>
+    </div>
+  
+  </div>
+  
+  
+  <ul class="list-group">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Tipo:</b></div>
+          <div class="col"><%= donante.tipo %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+          <div class="row">
+              <div class="col" style="max-width: 140px"><b>Apellidos:</b></div>
+              <div class="col"><%= donante.lastName %></div>
+          </div>
+      </li>
+      
+      <li class="list-group-item">
+          <div class="row">
+              <div class="col" style="max-width: 140px"><b>Nombre:</b></div>
+              <div class="col"><%= donante.firstName %> <%= donante.lastName %></div>
+          </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Edad:</b></div>
+          <div class="col"><%= donante.edad %></div>
+        </div>
+      </li>
+  
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Dirección:</b></div>
+          <div class="col"><%= donante.direccion %></div>
+        </div>
+      </li>
+  
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Ocupación:</b></div>
+          <div class="col"><%= donante.ocupacion %></div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Partos:</b></div>
+          <div class="col"><%= donante.partos %></div>
+        </div>
+      </li>
+  
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Cesáreas:</b></div>
+          <div class="col"><%= donante.cesareas %></div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Apellidos RN/Lactante:</b></div>
+          <div class="col"><%= donante.apellidosRNLactante %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>SDG:</b></div>
+          <div class="col"><%= donante.sdg %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Fecha Nacimiento RN:</b></div>
+          <div class="col"><%= moment(donante.fechaNacimRN).format('D [de] MMMM [de] YYYY') %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Complicaciones Embarazo:</b></div>
+          <div class="col"><%= donante.complicacionesEmbarazo %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Transfusiones Últimos 5 Años:</b></div>
+          <div class="col"><%= donante.transfusionesUltimos5Anos %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Tatuajes, Piercings, Acupuntura Último Año:</b></div>
+          <div class="col"><%= donante.tatuajesPiercingsAcupunturaUltimoAno %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Tratamiento Médico:</b></div>
+          <div class="col"><%= donante.tratamientoMedico %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Prueba Rápida Sífilis:</b></div>
+          <div class="col"><%= donante.pruebaRapidaSifilis %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Prueba Rápida VIH:</b></div>
+          <div class="col"><%= donante.pruebaRapidaVIH %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Prueba Rápida Hepatitis C:</b></div>
+          <div class="col"><%= donante.pruebaRapidaHepatitisC %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Observaciones:</b></div>
+          <div class="col"><%= donante.observaciones %></div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Fecha de Creación:</b></div>
+          <div class="col"><%= moment(donante.createdAt).format('llll [hrs] ') %></div>
+        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col" style="max-width: 140px"><b>Última Modificación:</b></div>
+          <div class="col"><%= moment(donante.updatedAt).format('llll [hrs]') %></div>
+        </div>
+      </li>
+  </ul>
