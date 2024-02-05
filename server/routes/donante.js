@@ -14,6 +14,8 @@ router.get('/edit/:id', donanteController.edit);
 router.put('/edit/:id', donanteController.editPost);
 router.delete('/edit/:id', donanteController.deleteDonante);
 
+router.post('/search', donanteController.searchDonantes);
+
 
 
 module.exports = router;

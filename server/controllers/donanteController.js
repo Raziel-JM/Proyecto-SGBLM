@@ -209,4 +209,36 @@ exports.deleteDonante = async (req, res) => {
         // Puedes enviar una respuesta de error o redirigir a una página de error si es necesario    
         res.status(500).send("Error al eliminar el donante" + error.message);  
       }
-    };
+    }
+
+    /**
+ * POST /search
+ * Search Donante Data
+ */
+exports.searchDonantes = async (req, res) => {
+  const locals = {
+    title: "Search Donante Data",
+    description: "Free SGBLM User Management System",
+  };
+
+  try {
+    let searchTerm = req.body.searchTerm;
+    const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
+
+    const donantes = await Donante.find({
+      $or: [
+        { firstName: { $regex: new RegExp(searchNoSpecialChar, "i") } },
+        { lastName: { $regex: new RegExp(searchNoSpecialChar, "i") } },
+        // Agrega aquí otros campos en los que quieras realizar la búsqueda
+      ],
+    });
+
+    res.render("search", {
+      donantes,
+      locals,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('error', { message: 'Error en la búsqueda de donantes' });
+  }
+};
