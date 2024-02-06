@@ -40,11 +40,40 @@
                 <i class="bi bi-pencil"></i>
               </a>
 
-              <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
-                <button type="submit" class="btn btn-danger btn-small">
-                  <i class="bi bi-person-x"></i>
-                </button>
-              </form>
+              
+              
+              <button type="button" class="btn btn-danger btn-small" data-bs-toggle="modal"
+              data-bs-target="#deleteModal<%= element._id %>">
+              <i class="bi bi-person-x"></i>
+          </button>
+
+          <!-- Modal de confirmación de eliminación específico para cada donadora -->
+          <div class="modal fade" tabindex="-1" role="dialog" id="deleteModal<%= element._id %>">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Confirmar Eliminación </h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"
+                              aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <p>Estás a punto de eliminar el registro de la donadora:</p>
+                          <p><b><%= element.firstName %> <%= element.lastName %></b></p>
+                          <p>¿Estás seguro de que deseas continuar?</p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary"
+                              data-bs-dismiss="modal">Cerrar</button>
+
+                          <!-- Mueve el botón de eliminación dentro del formulario -->
+                          <form action="/edit/<%= element._id %>?_method=DELETE" method="POST"
+                              class="position-relative">
+                              <button type="submit" class="btn btn-danger">Sí, Eliminar Donadora</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+
             </div>
          </tr>
         <% }) %>
